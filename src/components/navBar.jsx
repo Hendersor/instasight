@@ -13,9 +13,9 @@ const NavBar = () => {
             </div>
 
             <div className="flex justify-between items-center w-28 px-2.5">
-                <BsBookmark className="w-6 h-6 self-center pointer"/>
+                <BsBookmark className="w-5 h-5 self-center pointer"/>
                 
-                <figure className="rounded-full h-10 w-10 flex justify-center items-center pointer border-solid">
+                <figure className="rounded-full border-solid border border-black h-10 w-10 flex justify-center items-center pointer ">
                     <AiOutlineUser className="w-6 h-6 self-center pointer"/>
                 </figure>
             </div>
