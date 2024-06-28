@@ -4,7 +4,7 @@ import { BsBookmark } from "react-icons/bs";
 
 const PictureContainer = () => {
   return (
-    <section className="border-solid border-2 border-black w-80 h-[470px] mx-auto rounded-md">
+    <section className="border border-gray-700 w-80 h-[470px] mx-auto rounded-md my-5">
         <div className="h-10 w-full flex justify-start items-center">
           <figure className="h-full w-12 flex justify-center items-center overflow-hidden">
             <img className="h-10 w-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ09H3bRBTPEqWdsSNuOz7b284eOBt4dDcuSQ&s" alt="user image" />
@@ -24,11 +24,11 @@ const PictureContainer = () => {
              <BsBookmark className="w-6 h-6"/>
             </div>
           </div>
-
-          <div className="h-3/6 w-full border-solid border-2 border-black">
+          <div className="h-3/6 w-full">
             <p>
               <h3 className="font-bold">username</h3>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo quisquam minima totam odio quibusdam dolor! A adipisci quas dignissimos mollitia cumque, odio odit impedit tenetur, soluta dolorem ducimus saepe quia.</p>
+              description
+            </p>
           </div>
         </div>
     </section>
