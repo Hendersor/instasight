@@ -1,13 +1,16 @@
-import { NavBar } from './components/navBar'
-import { PictureContainer } from './components/pictureContainer'
+import { Home } from "./pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-
+const App = () => {
   return (
-    <>  
-      <NavBar/>
-      <PictureContainer/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/bookmarks"/>
+        <Route path="/login"/>
+        <Route path="/sign"/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

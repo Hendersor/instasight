@@ -9,7 +9,7 @@ const PictureContainer = () => {
           <figure className="h-full w-12 flex justify-center items-center overflow-hidden">
             <img className="h-10 w-10" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ09H3bRBTPEqWdsSNuOz7b284eOBt4dDcuSQ&s" alt="user image" />
           </figure>
-          <h3 className="mx-2">Username</h3>
+          <h3 className="mx-2">username</h3>
         </div>
 
         <figure className='w-full h-80 border-solid border-2 border-red' >
