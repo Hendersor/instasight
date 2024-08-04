@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <>
       <NavBar />
-      <div className="w-screen h-full flex flex-col items-center justify-center px-5">
+      <div className="w-11/12 h-[400px] mx-auto flex flex-col items-center px-5 my-5 rounded-lg shadow-xl">
         <figure>
           <img
             className="w-full h-full"
@@ -20,9 +20,9 @@ const NotFound = () => {
         </p>
 
         <button className="bg-black text-white w-[125px] px-4 h-9 rounded-md pointer flex items-center justify-between">
-            <IoIosArrowRoundBack className="w-7 h-7"/>
-            Go back
-          </button>
+          <IoIosArrowRoundBack className="w-7 h-7" />
+          Go back
+        </button>
       </div>
     </>
   );
