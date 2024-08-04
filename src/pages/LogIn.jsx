@@ -5,7 +5,7 @@ export const LogIn = () => {
     <section className="w-full h-screen border-solid border-2 border-sky-500 flex flex-col ">
         <NavBar/>
         <form action="" className="border-solid border border-black w-4/5 h-4/5 my-0 rounded-lg mx-auto flex flex-col justify-evenly my-5">
-            <h1 className="text-3xl text-center">Sign in</h1>
+            <h1 className="text-3xl text-center">Log in</h1>
 
             <div className="flex justify-between px-5">
                 <label>Email</label>
