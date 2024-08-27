@@ -16,7 +16,7 @@ const LogIn = () => {
           </div>
 
           <div className="mb-4">
-            <p className="mb-1">Password</p>
+            <p className="mb-1">password</p>
             <input
               type="password"
               className="w-full p-2 border border-gray-300 rounded shadow-sm"
