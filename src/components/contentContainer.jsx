@@ -1,4 +1,4 @@
-import { PictureContainer } from "./pictureContainer"
+import { PictureContainer } from "./PictureContainer"
 
 export const ContentContainer = () => {
   return (
