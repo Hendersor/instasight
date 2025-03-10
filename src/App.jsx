@@ -3,7 +3,7 @@ import { LogIn } from "./pages/LogIn";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import {SignIn} from "./pages/SignIn"
-import { Profile } from "./components/Profile";
+import { Profile } from "./pages/Profile";
 
 const App = () => {
   return (
