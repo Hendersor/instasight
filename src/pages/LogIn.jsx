@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
+  const navigate = useNavigate();
   return (
     <section className="flex flex-col h-screen">
       <div className="flex-grow flex items-center justify-center">
@@ -25,14 +27,14 @@ const LogIn = () => {
             Log In
           </button>
           <a
-            href=""
+            onClick={() => navigate("/forgot-password")}
             className="block text-center mt-4 text-blue-500 hover:underline"
           >
             Forgot password?
           </a>
           <p className="text-center mt-2 text-gray-600">
             Dont have an account?{" "}
-            <a href="" className="text-blue-500 hover:underline">
+            <a onClick={() => navigate("/signin")} className="text-blue-500 hover:underline">
               Sign up
             </a>
           </p>

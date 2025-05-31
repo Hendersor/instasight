@@ -6,7 +6,8 @@ import { Profile } from "./pages/Profile";
 import { Bookmarks } from "./pages/Bookmarks";
 import { NotFound } from "./pages/NotFound";
 import { TabBar } from "./components/TabBar";
-import { NavBar } from "./components/NavBar";{}
+import { NavBar } from "./components/NavBar";
+import { ForgotPassword } from "./pages/ForgotPassword";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/login" element={<LogIn/>}/>
         <Route path="/signin" element={<SignIn/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/forgot-password" element={<ForgotPassword/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
       <TabBar />
