@@ -1,9 +1,7 @@
-import { NavBar } from "../components/NavBar"
 
 const LogIn = () => {
   return (
     <section className="flex flex-col h-screen">
-      <NavBar />
       <div className="flex-grow flex items-center justify-center">
         <div className="border-2 border-gray-200 p-6 rounded-md shadow-lg bg-white">
           <h1 className="text-center text-3xl font-bold mb-4">Log In</h1>
