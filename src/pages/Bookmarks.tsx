@@ -1,5 +1,5 @@
 
-const Bookmarks = () => {
+const Bookmarks = ():JSX.Element => {
   return (
     <div>Bookmarks</div>
   )

@@ -1,6 +1,6 @@
 import { IoIosArrowRoundBack } from "react-icons/io";
 
-const NotFound = () => {
+const NotFound = ():JSX.Element => {
   return (
     <>
       <div className="w-11/12 h-[400px] mx-auto flex flex-col items-center px-5 my-5 rounded-lg shadow-xl">

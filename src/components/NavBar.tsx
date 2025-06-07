@@ -6,7 +6,7 @@ import { BsBookmarkFill } from "react-icons/bs";
 import { NavIcon } from "./NavIcon";
 import { useNavigate } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ():JSX.Element => {
     const navigate = useNavigate();
     return (
         <nav className="border-y h-16 flex justify-between items-center px-5 sticky top-0 bg-white">

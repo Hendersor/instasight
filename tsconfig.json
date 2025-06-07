@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                         // Apunta a la última versión de JS
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],   // Para tipos del navegador y funciones modernas
+    "allowJs": false,                           // No queremos permitir .js si ya estás migrando
+    "skipLibCheck": true,                       // Omite verificación de tipos en dependencias
+    "esModuleInterop": true,                    // Para importaciones tipo ESModule
+    "allowSyntheticDefaultImports": true,       // Permite `import React from "react"`
+    "strict": true,                             // Activa todas las reglas estrictas de TS
+    "forceConsistentCasingInFileNames": true,   // Evita errores por mayúsculas/minúsculas en rutas
+    "module": "ESNext",                         // Usa módulos modernos
+    "moduleResolution": "Node",                 // Resolución típica para proyectos Node/Vite
+    "resolveJsonModule": true,                  // Permite importar archivos JSON
+    "isolatedModules": true,                    // Obligatorio para React + Vite
+    "noEmit": true,                             // No generes archivos JS de salida
+    "jsx": "react-jsx"                          // Transforma JSX al nuevo runtime (React 17+)
+  },
+  "include": ["src"]                            // Solo analiza archivos en la carpeta src
+}

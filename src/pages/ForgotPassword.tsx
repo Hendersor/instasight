@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const ForgotPassword = () => {
+const ForgotPassword = ():JSX.Element => {
     const navigate = useNavigate();
   return (
     <div className="h-[80vh] flex items-center justify-center bg-gray-100 px-4">
