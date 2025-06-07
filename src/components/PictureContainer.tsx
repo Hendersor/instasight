@@ -2,7 +2,7 @@ import { BsHeart } from "react-icons/bs";
 import { BsBookmark } from "react-icons/bs";
 
 
-const PictureContainer = () => {
+const PictureContainer = ():JSX.Element => {
   return (
     <section className="border border-gray-700 w-80 h-[470px] mx-auto rounded-md my-5">
         <div className="h-10 w-full flex justify-start items-center">

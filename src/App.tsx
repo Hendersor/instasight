@@ -8,9 +8,9 @@ import { NotFound } from "./pages/NotFound";
 import { TabBar } from "./components/TabBar";
 import { NavBar } from "./components/NavBar";
 
-const App = () => {
+const App = (): JSX.Element => {
   return (
-    <BrowserRouter>
+    <>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home/>}/>
@@ -21,7 +21,8 @@ const App = () => {
         <Route path="*" element={<NotFound/>}/>
       </Routes>
       <TabBar />
-    </BrowserRouter>
+    </>
+
   )
 }
 
