@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const LogIn = (): JSX.Element => {
   const navigate = useNavigate();
   return (
-    <section className="flex flex-col h-screen">
+    <form className="flex flex-col h-screen">
       <div className="flex-grow flex items-center justify-center">
         <div className="border-2 border-gray-200 p-6 rounded-md shadow-lg bg-white">
           <h1 className="text-center text-3xl font-bold mb-4">Log In</h1>
@@ -40,7 +40,7 @@ const LogIn = (): JSX.Element => {
           </p>
         </div>
       </div>
-    </section>
+    </form>
   );
 };
 

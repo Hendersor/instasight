@@ -14,19 +14,17 @@ interface AuthContextType {
     isAuthenticated: boolean;
 }
 
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-
 interface AuthProviderProps {
     children: ReactNode;
 }
 
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
 const AuthProvider = ({children}: AuthProviderProps) => {
 
-    const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
-      const login = (userData: User) => {
+  const login = (userData: User) => {
     setUser(userData);
   };
 
