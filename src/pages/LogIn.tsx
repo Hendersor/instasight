@@ -2,20 +2,47 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { loginSchema, LoginData } from "../schemas/login.Schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {loginUser} from "../API/loginUser"
+import { loginUser } from "../API/loginUser"
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
+import { useState } from "react";
 
 const LogIn = (): JSX.Element => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false)
+  const { login } = useContext(AuthContext)!
 
-  const {register, handleSubmit, formState:{errors}} = useForm<LoginData>({
+  const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
     resolver: zodResolver(loginSchema)
   })
 
-  const onSubmit = (data:LoginData) => {
-      loginUser(data)
+
+
+  const onSubmit = async (inputData: LoginData) => {
+    setIsLoading(true)
+    try {
+      const data = await loginUser(inputData);
+
+      const userSession = {
+        id: data.user.id,
+        username: data.user.username,
+        email: data.user.email
+      };
+
+      const token = data.token;
+
+      login(userSession, token);
+      navigate("/");
+    } catch (error) {
+      console.error("Login failed:", error);
+
+    } finally {
+      setIsLoading(false);
+    }
   }
 
-  
+
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col h-screen">
       <div className="flex-grow flex items-center justify-center">
@@ -24,7 +51,7 @@ const LogIn = (): JSX.Element => {
           <div className="mb-4">
             <p className="mb-1">Email</p>
             <input
-            {...register("email")}
+              {...register("email")}
               type="email"
               className="w-full p-2 border border-gray-300 rounded shadow-sm"
             />
@@ -42,9 +69,23 @@ const LogIn = (): JSX.Element => {
             {errors.password && (<p className="text-sm text-red-500">{errors.password.message}</p>)}
           </div>
 
-          <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded shadow-md hover:bg-blue-600">
-            Log In
+          <button
+            type="submit"
+            disabled={isLoading}
+            className={`w-full p-2 text-white rounded shadow-md transition-colors duration-200 text-sm flex items-center justify-center
+    ${isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}`}
+          >
+            {isLoading ? (
+              <>
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                Loading...
+              </>
+            ) : (
+              "Log In"
+            )}
           </button>
+
+
           <a
             onClick={() => navigate("/forgot-password")}
             className="block text-center mt-4 text-blue-500 hover:underline"
@@ -63,4 +104,4 @@ const LogIn = (): JSX.Element => {
   );
 };
 
-export {LogIn}
+export { LogIn }

@@ -1,33 +1,71 @@
-import { BsInstagram } from "react-icons/bs"
-import { BsPerson } from "react-icons/bs";
-import { BsSearch } from "react-icons/bs";
-import { BsFillPlusCircleFill } from "react-icons/bs";
-import { BsBookmarkFill } from "react-icons/bs";
+import { BsInstagram, BsPerson, BsSearch, BsFillPlusCircleFill, BsBookmarkFill } from "react-icons/bs";
 import { NavIcon } from "./NavIcon";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
-const NavBar = ():JSX.Element => {
+const NavBar = (): JSX.Element => {
     const navigate = useNavigate();
+    const { isAuthenticated, logout } = useContext(AuthContext)!;
+
+    const handleAuthAction = () => {
+        if (isAuthenticated) {
+            logout();
+            navigate("/login");
+        } else {
+            navigate("/login");
+        }
+    };
+
     return (
-        <nav className="border-y h-16 flex justify-between items-center px-5 sticky top-0 bg-white">
-            <div className="flex justify-between items-center w-40 px-2.5 md:w-[200px]">
-                <NavIcon icon={BsInstagram} to="/" className=" self-center" />
-                <h1 className="self-center text-xl">Instasight</h1>
-                <NavIcon icon={BsSearch} to="/" className="hidden md:flex " />
-            </div>
+        <nav className="sticky top-0 bg-white border-b border-gray-200 z-50">
+            <div className="h-16 px-4 flex items-center justify-between max-w-screen-xl mx-auto">
+                
+                <div className="flex items-center gap-3 min-w-0">
+                    <NavIcon 
+                        icon={BsInstagram} 
+                        to="/" 
+                        className="text-2xl text-gray-700 hover:text-blue-600 transition-colors flex-shrink-0" 
+                    />
+                    <h1 className="text-xl font-semibold text-gray-900 truncate">
+                        Instasight
+                    </h1>
+                </div>
 
-            <div className="hidden md:flex justify-between self-center w-40 px-2.5">
-                <BsFillPlusCircleFill className=" self-center" />
-                <NavIcon icon= {BsBookmarkFill} to="/bookmarks" className=" self-center" />
-                <NavIcon icon={BsPerson} to="/profile" className=" self-center" />
-            </div>
+                {isAuthenticated && (
+                    <div className="hidden md:flex items-center gap-6">
+                        <NavIcon 
+                            icon={BsSearch} 
+                            to="/search" 
+                            className="text-xl text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100" 
+                        />
+                        <button className="text-xl text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100">
+                            <BsFillPlusCircleFill />
+                        </button>
+                        <NavIcon 
+                            icon={BsBookmarkFill} 
+                            to="/bookmarks" 
+                            className="text-xl text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100" 
+                        />
+                        <NavIcon 
+                            icon={BsPerson} 
+                            to="/profile" 
+                            className="text-xl text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100" 
+                        />
+                    </div>
+                )}
 
-            <button onClick={() => navigate("/login")} className="h-[50%] max-w-[120px] py-1.5 px-4 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-200 text-sm">
-                Log in
-            </button>
+                <div className="flex-shrink-0">
+                    <button
+                        onClick={handleAuthAction}
+                        className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 min-w-[80px]"
+                    >
+                        {isAuthenticated ? "Log out" : "Log in"}
+                    </button>
+                </div>
+            </div>
         </nav>
-    )
-}
+    );
+};
 
-
-export {NavBar};
+export { NavBar };
