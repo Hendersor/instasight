@@ -3,8 +3,10 @@ import { NavIcon } from "./NavIcon";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { useState } from "react";
 
 const NavBar = (): JSX.Element => {
+
     const navigate = useNavigate();
     const { isAuthenticated, logout } = useContext(AuthContext)!;
 
@@ -16,6 +18,8 @@ const NavBar = (): JSX.Element => {
             navigate("/login");
         }
     };
+
+
 
     return (
         <nav className="sticky top-0 bg-white border-b border-gray-200 z-50">
