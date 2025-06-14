@@ -3,11 +3,17 @@ import { NavIcon } from "./NavIcon";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { useState } from "react";
+import { ModalContext } from "../context/ModalContext";
 
-const NavBar = (): JSX.Element => {
-
+const NavBar = (): JSX.Element | null => {
     const navigate = useNavigate();
+
+    const modal = useContext(ModalContext);
+
+  if (!modal) return null; 
+
+  const { openModal } = modal;
+
     const { isAuthenticated, logout } = useContext(AuthContext)!;
 
     const handleAuthAction = () => {
@@ -43,7 +49,7 @@ const NavBar = (): JSX.Element => {
                             to="/search" 
                             className="text-xl text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100" 
                         />
-                        <button className="text-xl text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100">
+                        <button onClick={() => openModal()} className="text-xl text-gray-600 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100">
                             <BsFillPlusCircleFill />
                         </button>
                         <NavIcon 
