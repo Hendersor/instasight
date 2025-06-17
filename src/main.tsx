@@ -19,8 +19,8 @@ if (!root) {
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ModalProvider>
-        <AuthProvider>
+      <AuthProvider>
+        <ModalProvider>
           <App />
           <ToastContainer
             position="top-right"
@@ -30,9 +30,9 @@ ReactDOM.createRoot(root).render(
             closeOnClick
             pauseOnHover
             draggable
-            theme="light"/>
-        </AuthProvider>
-      </ModalProvider>
+            theme="light" />
+        </ModalProvider>
+      </AuthProvider>
     </BrowserRouter>
 
   </React.StrictMode>,
